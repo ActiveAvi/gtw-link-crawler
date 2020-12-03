@@ -1,9 +1,10 @@
-function Link(link, linkMeta, i) {
+function Link(linksData, i) {
     let linkObject = {
-        _id: linkMeta.time + `${i}`,
-        user: linkMeta.user,
-        timePosted: linkMeta.time,
-        url: link,
+        _id: linksData.time + `${i}`,
+        user: linksData.user,
+        timePosted: linksData.time,
+        url: linksData.links[i],
+        channel: linksData.channel,
     };
     return linkObject;
 }
