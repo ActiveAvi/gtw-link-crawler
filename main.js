@@ -13,12 +13,13 @@ bot.on("message", async (message) => {
     if (channelsAllowed.includes(channel.name)) {
         let links = message.content.match(/\bhttps?:\/\/\S+/gi) || null;
         if (links) {
-            let linksToSave = {
+            let linksData = {
                 user: message.author.username,
                 links: links,
                 time: Date.now(),
+                channel: channel.name,
             };
-            saveLinks(linksToSave);
+            saveLinks(linksData);
         }
     }
 });
