@@ -1,5 +1,4 @@
-const nano = require("nano")("http://admin:32u90a@localhost:5984");
-const db = nano.db.use("links");
+const db = require('./connect.js')
 const sortLink = require("../sorter/sort.js");
 const crawl = require("../crawler/crawl.js");
 const Link = require("../models/Link.js");
@@ -11,8 +10,8 @@ async function saveLinks(linksData) {
             let found = await db.find({ selector: { url: link } });
             if (found.docs.length == 0) {
                 let linkDoc = new Link(link, linksData, i);
+                // Crawl the page and append the html to the linkDoc
                 // let crawledLink = crawl(linkDoc);
-                // let sortedLink = sortLink(crawledLink);
                 let res = await db.insert(linkDoc);
                 if (res.ok == true) console.log('Link inserted')
             } else {
