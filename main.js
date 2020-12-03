@@ -7,12 +7,12 @@ const TOKEN = process.env.TOKEN;
 
 bot.login(TOKEN);
 
-const channelsAllowed = ['general'];
+const channelsAllowed = ["general"];
 
 // On message, check for links and trigger save func
 bot.on("message", async (message) => {
     let channel = await message.channel.fetch();
-    if (channelsAllowed.includes(channel.name)){
+    if (channelsAllowed.includes(channel.name)) {
         let links = message.content.match(/\bhttps?:\/\/\S+/gi) || null;
         if (links) {
             let linksToSave = {
@@ -22,5 +22,5 @@ bot.on("message", async (message) => {
             };
             saveLinks(linksToSave);
         }
-    } 
+    }
 });
