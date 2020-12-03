@@ -7,6 +7,7 @@ const TOKEN = process.env.TOKEN;
 
 bot.login(TOKEN);
 
+// On message, check for links and trigger save func
 bot.on("message", async (message) => {
     let links = message.content.match(/\bhttps?:\/\/\S+/gi) || null;
     if (links) {
