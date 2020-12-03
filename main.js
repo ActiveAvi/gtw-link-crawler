@@ -1,5 +1,5 @@
 require("dotenv").config();
-const saveLinks = require("./db/save-links.js");
+const saveLinks = require("./db/insert.js");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 

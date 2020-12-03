@@ -1,25 +1,20 @@
 const nano = require("nano")("http://admin:32u90a@localhost:5984");
 const db = nano.db.use("links");
 const sortLink = require("../sorter/sort.js");
-const crawl = require("../crawler/crawl.js")
+const crawl = require("../crawler/crawl.js");
+const Link = require("../models/Link.js");
 
 // Takes links object from main.js and saves it to db
 async function saveLinks(linksData) {
     let links = linksData.links;
     links.map(async function (link, i) {
         try {
-            let dbSelector = { selector: { url: link }}
-            let found = await db.find(dbSelector);
+            let found = await db.find({ selector: { url: link } });
             if (found.docs.length == 0) {
-                let linkObject = {
-                    _id: linksData.time + `${i}`,
-                    user: linksData.user,
-                    timePosted: linksData.time,
-                    url: link,
-                };
-                let crawledLink = crawl(linkObject);
-                let sortedLink = sortLink(crawledLink);
-                let res = await db.insert(linkObject);
+                let linkDoc = new Link(link, linksData, i);
+                // let crawledLink = crawl(linkDoc);
+                // let sortedLink = sortLink(crawledLink);
+                let res = await db.insert(linkDoc);
             } else {
                 console.log("Link is already in the database");
             }
