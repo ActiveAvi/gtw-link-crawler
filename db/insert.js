@@ -6,8 +6,7 @@ const Link = require("../models/Link.js");
 
 // Takes links object from main.js and saves it to db
 async function saveLinks(linksData) {
-    let links = linksData.links;
-    links.map(async function (link, i) {
+    linksData.links.map(async function (link, i) {
         try {
             let found = await db.find({ selector: { url: link } });
             if (found.docs.length == 0) {
@@ -15,6 +14,7 @@ async function saveLinks(linksData) {
                 // let crawledLink = crawl(linkDoc);
                 // let sortedLink = sortLink(crawledLink);
                 let res = await db.insert(linkDoc);
+                if (res.ok == true) console.log('Link inserted')
             } else {
                 console.log("Link is already in the database");
             }
