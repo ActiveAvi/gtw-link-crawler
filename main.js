@@ -2,12 +2,10 @@ require("dotenv").config();
 const saveLinks = require("./db/insert.js");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-
 const TOKEN = process.env.TOKEN;
+const channelsAllowed = ["general"];
 
 bot.login(TOKEN);
-
-const channelsAllowed = ["general"];
 
 // On message, check for links and trigger save func
 bot.on("message", async (message) => {
