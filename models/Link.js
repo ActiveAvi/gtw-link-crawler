@@ -1,4 +1,4 @@
-function Link(link, linkMeta, i){
+function Link(link, linkMeta, i) {
     let linkObject = {
         _id: linkMeta.time + `${i}`,
         user: linkMeta.user,
@@ -8,4 +8,4 @@ function Link(link, linkMeta, i){
     return linkObject;
 }
 
-module.exports = Link
+module.exports = Link;
