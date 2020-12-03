@@ -1,6 +1,6 @@
-function sortLink(link) {
+function sort(link) {
     // console.log(link)
     // console.log(module.exports)
 }
 
-module.exports = sortLink
+module.exports = sort;
