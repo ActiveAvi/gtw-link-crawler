@@ -17,4 +17,5 @@ DBURL=http://your.pouchdb.installation.url:port
 ```
 CHANNELS=channel1,channel2,channel3
 ```
+5. Run `npm install` in your terminal from the root directory to install the dependencies. 
 5. Finally, run `node main.js` in your terminal from the root directory to start the bot.
