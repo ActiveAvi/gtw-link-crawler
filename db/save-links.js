@@ -3,6 +3,7 @@ const db = nano.db.use("links");
 const sortLink = require("../sorter/sort.js");
 const crawl = require("../crawler/crawl.js")
 
+// Takes links object from main.js and saves it to db
 async function saveLinks(linksData) {
     let links = linksData.links;
     links.map(async function (link, i) {
