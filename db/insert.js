@@ -14,7 +14,7 @@ async function instert(linksData) {
                 // let crawledLink = crawl(linkDoc);
                 let res = await db.insert(linkDoc);
                 if (res.ok == true) {
-                    console.log(`Link inserted: ${linkDoc.url}`);
+                    console.log(`Link inserted: ${linkDoc.link}`);
                 }
             } else {
                 console.log("Link is already in the database");
