@@ -13,7 +13,9 @@ async function saveLinks(linksData) {
                 // Crawl the page and append the html to the linkDoc
                 // let crawledLink = crawl(linkDoc);
                 let res = await db.insert(linkDoc);
-                if (res.ok == true) console.log("Link inserted");
+                if (res.ok == true) {
+                    console.log(`Link inserted: ${linkDoc.url}`);
+                }
             } else {
                 console.log("Link is already in the database");
             }
