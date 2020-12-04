@@ -12,13 +12,10 @@ bot.login(TOKEN);
 // On message, check for links and trigger save func
 bot.on("message", async (message) => {
     let channel = await message.channel.fetch();
-    console.log("Current channel: " + channel.name);
     if (!BLOCKED.includes(channel.name)) {
-        console.log("Channel acceptable");
         let links = message.content.match(/\bhttps?:\/\/\S+/gi) || null;
-        let validatedLinks = links ? links.filter((link) => isURL(link)) : null;
-        if (validatedLinks.length > 0) {
-            console.log("Links valid, saving to database.");
+        let validatedLinks = links.filter((link) => isURL(link));
+        if (!Array.isArray(validatedLinks) || validatedLinks.length > 0) {
             let linksData = {
                 user: message.author.username,
                 links: validatedLinks,
