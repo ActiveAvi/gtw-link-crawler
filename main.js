@@ -17,8 +17,9 @@ bot.on("message", async (message) => {
     let user = message.author.username;
     let channel = (await message.channel.fetch()).name;
     if (!BLOCKED.includes(channel)) {
-        let links = message.content.match(/\bhttps?:\/\/\S+/gi) || [];
-        links = links.filter((link) => isURL(link));
+        let links = (message.content.match(/\bhttps?:\/\/\S+/gi) || [])
+            .filter((link) => isURL(link))
+            .map(link => link.replace(/^http:\/\//i, "https://"));
         if (links) {
             let linkList = new LinksList({ user, channel, links });
             insert(linkList);
