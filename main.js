@@ -15,7 +15,7 @@ bot.login(TOKEN)
 // On message, check for links and trigger save func
 bot.on("message", async (message) => {
     let user = message.author.username;
-    let channel = await message.channel.fetch();
+    let channel = (await message.channel.fetch()).name;
     if (!BLOCKED.includes(channel.name)) {
         let links = message.content.match(/\bhttps?:\/\/\S+/gi) || [];
         links = links.filter((link) => isURL(link));
