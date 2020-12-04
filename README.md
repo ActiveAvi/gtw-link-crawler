@@ -13,7 +13,7 @@ A couchdb installation, nodejs, and a discord bot token with these permissions *
 TOKEN=YOUR.DISCORD.TOKEN
 DBURL=http://your.pouchdb.installation.url:port
 ```
-4. Now add the discord text channels you'd like the bot to collect links from to that same file, seperated by commas:
+4. Now, to that same file, add the name of any discord text channels you'd like the bot to ignore, seperated by commas:
 ```
 CHANNELS=channel1,channel2,channel3
 ```
