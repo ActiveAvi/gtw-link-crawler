@@ -16,7 +16,7 @@ bot.login(TOKEN)
 bot.on("message", async (message) => {
     let user = message.author.username;
     let channel = (await message.channel.fetch()).name;
-    if (!BLOCKED.includes(channel.name)) {
+    if (!BLOCKED.includes(channel)) {
         let links = message.content.match(/\bhttps?:\/\/\S+/gi) || [];
         links = links.filter((link) => isURL(link));
         if (links) {
