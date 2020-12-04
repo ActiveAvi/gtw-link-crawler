@@ -4,7 +4,7 @@ const crawl = require("../crawler/crawl.js");
 const Link = require("../models/Link.js");
 
 // Takes links object from main.js and saves it to db
-async function saveLinks(linksData) {
+async function instert(linksData) {
     linksData.links.map(async function (link, i) {
         try {
             let found = await db.find({ selector: { url: link } });
@@ -25,4 +25,4 @@ async function saveLinks(linksData) {
     });
 }
 
-module.exports = saveLinks;
+module.exports = instert;

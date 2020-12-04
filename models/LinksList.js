@@ -1,11 +1,10 @@
-function LinkList(links) {
-    let linksList = {
-        user: links.user,
-        links: links.links,
-        time: Date.now(),
-        channel: links.channel,
-    };
-    return linksList;
+function LinksList(linksData) {
+    return {
+        user: linksData.user,
+        timePosted: Date.now(),
+        links: linksData.links,
+        channel: linksData.channel
+    }
 }
 
-module.exports = LinkList;
+module.exports = LinksList
