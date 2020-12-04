@@ -1,8 +1,8 @@
 function Link(linksData, i) {
     return linkObject = {
-        _id: linksData.time + `${i}`,
+        _id: linksData.timePosted + `${i}`,
         user: linksData.user,
-        timePosted: linksData.time,
+        timePosted: linksData.timePosted,
         link: linksData.links[i],
         channel: linksData.channel,
     };
