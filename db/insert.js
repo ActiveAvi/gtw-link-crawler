@@ -7,8 +7,8 @@ const Link = require("../models/Link.js");
 async function instert(linksData) {
     linksData.links.map(async function (link, i) {
         try {
-            let found = await db.find({ selector: { url: link } });
-            if (found.docs.length == 0) {
+            let docsFound = await db.find({ selector: { url: link } });
+            if (docsFound.docs.length == 0) {
                 let linkDoc = new Link(linksData, i);
                 // Crawl the page and append the html to the linkDoc
                 // let crawledLink = crawl(linkDoc);
