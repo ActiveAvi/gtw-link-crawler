@@ -1,0 +1,26 @@
+{
+  "name": "gtw-links",
+  "version": "1.0.0",
+  "description": "This discord bot is for finding and storing links posted to a discord server.",
+  "main": "./source/main.js",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "nano": "^9.0.1",
+    "dotenv": "^8.2.0",
+    "validator": "^13.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ActiveAvi/gtw-link-crawler.git"
+  },
+  "author": "Tony Reurink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ActiveAvi/gtw-link-crawler/issues"
+  },
+  "homepage": "https://github.com/ActiveAvi/gtw-link-crawler#readme"
+}
