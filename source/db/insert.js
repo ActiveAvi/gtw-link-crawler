@@ -1,6 +1,5 @@
 const db = require("./connect.js");
 const Link = require("../models/Link.js");
-const fetchHtml = require("../fetch/fetch-html.js");
 
 // Takes links object from main.js and saves it to db
 async function insert(linksData) {
